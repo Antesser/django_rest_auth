@@ -1,0 +1,1 @@
+remembering jwt and serealizers + django in general

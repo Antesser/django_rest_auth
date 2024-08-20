@@ -21,5 +21,5 @@ class SomeShit(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request) -> Response:
-        content = {"message": "well shit it works"}
+        content = {"message": "for sure"}
         return Response(content)

@@ -11,8 +11,13 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 import datetime
+import os
 from pathlib import Path
+import environ
 
+env = environ.Env()
+environ.Env.read_env()
+SECRET_KEY = env("SECRET_KEY")
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -93,12 +98,12 @@ WSGI_APPLICATION = "mysite.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "antesser",
-        "USER": "antesser",
-        "PASSWORD": "2211",
-        "HOST": "localhost",
-        "PORT": "",
+        "ENGINE": os.getenv("DB_ENGINE"),
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
     }
 }
 
